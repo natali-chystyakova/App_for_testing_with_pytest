@@ -1,18 +1,16 @@
-from typing import Union
-
 class Calculator:
-    def divide(self, x:Union[int, float], y: Union[int, float]) -> int | float:
+    def divide(self, x: int | float, y: int | float) -> int | float:
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise TypeError ("Both arguments should be numeric")
-        if y==0:
+            raise TypeError("Both arguments should be numeric")
+        if y == 0:
             raise ZeroDivisionError("Cannot divide be zero")
-        return x/y
+        return x / y
 
-    def add(self, x:Union[int, float], y: Union[int, float]) -> int | float:
+    def add(self, x: int | float, y: int | float) -> int | float:
         if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise TypeError ("Both arguments should be numeric")
+            raise TypeError("Both arguments should be numeric")
         return x + y
 
-if __name__=='__main__':
-    calculator=Calculator()
 
+if __name__ == "__main__":
+    calculator = Calculator()
