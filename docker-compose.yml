@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    command: python main.py     # по умолчанию запуск main.py
+    volumes:
+      - ./files_input:/wd/files_input:rw
+      - ./files_output:/wd/files_output:rw
+    ports:
+      - "8000:8000"             # пригодится для FastAPI позже
+    user: "1000"
+
+  test:
+    build: .
+    command: pytest
+    volumes:
+      - .:/wd                   # монтируем весь проект
+    depends_on:
+      - app
+    user: "1000"
